@@ -1,0 +1,672 @@
+/*初始化配置*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/*颜色变量*/
+$primary-color: #395de1;
+;
+$primary-color2: #ed239f;
+$title-color: #05364d;
+$text-color: #797979;
+$off-white: #f8faff;
+$white: #fff;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: linear-gradient(to right, #1345e6 0%, #ed239f 51%, #1345e6 100%);
+  color: #fff;
+  letter-spacing: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 50px;
+  padding: 0 38px;
+  outline: none !important;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-size: 200% auto;
+  text-decoration: none;
+  margin: 30px 0;
+}
+
+.title {
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #797979;
+  white-space: normal;
+  text-align: center;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 700;
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: #5a5af3;
+    left: calc(50% - 60px);
+  }
+}
+
+section {
+  margin-top: 100px;
+}
+
+.sticky{
+  position: fixed;background: #ffffff;
+  box-shadow: 0 3px 16px 0 rgba(0,0,0,0.1);
+  animation: dropDown 0.5s ease-in-out forwards;
+  .nav-link{
+    font: 500 14px/70px "SimHei", sans-serif !important;
+  }
+}
+@keyframes dropDown {
+  from{
+    transform: translateY(-70px);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+
+@mixin container {
+  display: grid;
+  padding: 0;
+  justify-content: center;
+  max-width: 1180px;
+}
+
+//@media (max-width: 576px) {
+//  .container {
+//    max-width: 540px;
+//  }
+//}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+    height: 100%;
+  }
+  nav {
+    height: 71px;
+    background: #ffffff;
+    box-shadow: 0 3px 16px 0 rgba(0,0,0,0.1);
+  }
+  header {
+    background-color: white;
+    width: 100%;
+    height: 71px;
+  }
+
+  .burger {
+     display: block;
+     width: 20px;
+     height: 6px;
+     position: relative;
+     justify-self: right;
+     cursor: pointer;
+   }
+  .nav-menu {
+    //animation: slideUp 0.6s ease-out forwards;
+    .menu-bar {
+      opacity: 0;
+      flex-direction: column;
+      margin-left:auto!important;
+    }
+  }
+  .burger-line-1,
+  .burger-line-2,
+  .burger-line-3 {
+    width: 20px;
+    height: 2px;
+    background-color: $text-color;
+  }
+  .burger-line-1 {
+    position: absolute;
+    transition: 0.4s ease;
+    top: -6px;
+  }
+  .burger-line-3 {
+    position: absolute;
+    transition: 0.4s ease;
+    top: 6px;
+  }
+  .banner-content {
+    h3{
+      color: #05364d;
+      width: auto !important;
+    }
+    h1 {
+      font-size: 40px !important;
+    }
+  }
+
+  .open {
+    background-color: white;
+
+    nav{
+      box-shadow: unset!important;
+    }
+
+    .menu-bar {
+      display: flex;
+      background-color: white;
+      flex-direction: column !important;
+      box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
+      animation: slideDown 0.4s ease-out forwards;
+    }
+
+    .burger-line-1 {
+      transition: 0.4s ease;
+      transform: rotate(45deg) translate(3px, 5px);
+    }
+
+    .nav-menu {
+      display: block !important;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      margin-top: 70px;
+      left: 0;
+      text-align: center;
+
+    }
+
+    .burger-line-2 {
+      opacity: 0;
+    }
+
+    .nav-link {
+      font: 500 14px/50px "SimHei", sans-serif !important;
+    }
+
+    .burger-line-3 {
+      transition: 0.4s ease;
+      transform: rotate(-45deg) translate(3px, -5px);
+    }
+
+    //  nav > * {
+    //  animation: showMenu 0.5s linear forwards 0.4s;
+    //  font-size: 18px;
+    //  margin:4px 0;
+    //  opacity: 0;
+    //}
+
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 300px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: 100%;
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes showMenu {
+    from {
+      opacity: 0;
+      transform: translate(-1vh);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .banner {
+    //background: unset!important;
+    min-height: unset!important;
+    .banner-inner{
+      height: unset !important;
+    }
+  }
+  .banner:before {
+    content:"";
+    background: url("../images/home-banner.png") no-repeat top center;
+    filter: blur(100px);
+    min-height: 890px;
+    opacity: 0.4;
+    width:100%;
+    position:absolute;
+  }
+  .banner-inner {
+    padding: 10px 10px 0 !important;
+  }
+
+  .skills{
+    .content {
+      grid-template-columns: 1fr !important;
+    }
+    .content-right {
+      grid-template-columns: 1fr !important;
+      max-width: 80vw;
+      margin: 0 auto;
+    }
+    .content-left {
+      grid-template-columns: 1fr !important;
+    }
+    .code-image {
+      img{
+        width: 100% !important;
+      }
+    }
+  }
+
+  #works{
+    .content-item {
+      display: flex !important;
+      flex-direction: column !important;
+      .content-left {
+        padding: 0 !important;
+      }
+    }
+
+    .container{
+      max-width: 80vw !important;
+    }
+
+    .content-item:nth-child(even){
+      flex-direction: column-reverse !important;
+    }
+    .primary-btn {
+      display: none !important;
+    }
+    .qr-code {
+      margin-bottom: 30px;
+    }
+    .description {
+      padding: 25px !important;
+    }
+  }
+
+  #hobby{
+    .content{
+      grid-template-columns: 1fr !important;
+    }
+    .hobby-item {
+      padding: 15px !important;
+      max-width: 60vw !important;
+      margin: 20px auto !important;
+    }
+  }
+
+  footer{
+    padding: 50px 0 30px 0 !important;
+    p {
+      max-width: 80vw;
+      margin: 15px auto !important;
+    }
+  }
+  section{
+    //margin-top: 50px !important;
+  }
+
+  .banner-content {
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .container {
+    max-width: 960px;
+  }
+  .banner-bg {
+    display: none;
+  }
+}
+
+// 头部header样式
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+  background: transparent;
+
+  .main-menu {
+    .nav-bar {
+
+    }
+
+    nav {
+      .nav-menu {
+        flex-basis: auto;
+        flex-grow: 1;
+
+        .menu-bar {
+          display: flex;
+          margin-left: 100px;
+
+          li {
+            margin-right: 28px;
+            list-style: none;
+
+            a {
+              text-decoration: none;
+            }
+          }
+
+          .nav-link {
+            font: 500 14px/100px "SimHei", sans-serif;
+            padding: 0;
+            color: #05364d;
+            font-weight: bold;
+
+            &.active {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  &.fixed {
+    position: fixed;
+    width: 100%;
+    top: -70px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    transform: translateY(70px);
+    transition: transform 500ms ease, background 500ms ease;
+    -webkit-transition: transform 500ms ease, background 500ms ease;
+    box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.1);
+  }
+
+
+}
+
+// banner部分
+.banner {
+  background: url("../images/home-banner.png") no-repeat top center;
+  background-size: cover;
+  margin-top: unset;
+  min-height: 890px;
+
+  .banner-inner {
+    padding: 100px 100px 0;
+    height: 840px;
+    display: flex;
+
+    h1 {
+      margin-top: 20px;
+      font-size: 60px;
+      font-weight: 500;
+      line-height: 60px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      width: 500px;
+      padding: 15px 0;
+    }
+
+    h5 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    .society-icon {
+      padding: 50px 50px 50px 0;
+      display: flex;
+      position: relative;
+      a{
+        text-decoration: none;
+      }
+    }
+    .iconfont {
+      font-size: 32px;
+      color: $text-color;
+      padding: 0 10px;
+      &:hover {
+        .qr-code{
+          display: block !important;
+        }
+      }
+      .icon-wechat{
+        top: -185px;
+        left: -80px;
+        width: 200px;
+        height: 200px;
+      }
+      .qr-code{
+        padding: 10px;
+        position: absolute;
+        display: none;
+        text-align: center;
+        box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+        img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+  }
+  .banner-bg {
+    img{
+      width: 560px;
+    }
+  }
+}
+
+// 专业技能
+.skills {
+  h3 {
+    text-align: center;
+    padding: 0 30px;
+  }
+
+  .container {
+    @include container
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content-left {
+
+  }
+
+  .content-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content-item {
+    text-align: center;
+    padding: 60px 30px 80px 30px;
+    transition: all ease-in-out 0.3s;
+    background: #fff;
+    box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+
+  .content-title {
+    font-weight: 600;
+    padding: 10px;
+  }
+
+  .content-text {
+    color: #797979;
+    font-size: 14px;
+  }
+
+  .code-image {
+    img {
+      width: 600px;
+    }
+
+    text-align: center;
+  }
+
+}
+
+// 我的作品
+#works {
+  .container {
+    @include container;
+    //grid-template-columns: repeat(2,1fr);
+  }
+  .work-name{
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 52px;
+  }
+  .description {
+    color: $text-color;
+    padding: 50px;
+  }
+  .content {
+
+  }
+  .content-item {
+    display: grid;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .content-left {
+    position: relative;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 0 80px;
+  }
+  .content-right {
+    text-align: center;
+  }
+  .preview {
+    img{
+      width: 350px;
+      border-radius: 15px;
+      padding: 5px;
+      transition: all ease-in-out 0.3s;
+      background: rgba(0,0,0,0.1);
+      box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
+  .qr-code {
+    img{
+      width: 250px;
+    }
+  }
+}
+
+// 兴趣爱好
+#hobby {
+  .container {
+    @include container
+  }
+
+  .hobby-item {
+    padding: 60px 50px;
+    text-align: center;
+    margin: 0 50px;
+    background: #f8faff;
+    transition: all 0.4s ease 0s;
+    &:hover{
+      transform: translateY(-20px) scale(1.05);
+      box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 50px;
+  }
+
+  h4{
+    font-size: 26px;
+    padding: 14px 0;
+  }
+  p{
+    color: #797979;
+  }
+}
+
+// 页尾
+footer {
+  background: #021017;
+  padding: 120px 0 50px 0;
+  position: relative;
+  color: white;
+  text-align: center;
+
+  p {
+    margin: 15px;
+    font-size: 14px;
+  }
+
+  .contrast {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+  }
+
+  .contrast-item {
+    margin: 0 10px;
+  }
+
+  .iconfont {
+    font-size: 28px;
+  }
+
+  a{
+    color: #7456e9;
+    text-decoration: none;
+  }
+}
+
+
+
