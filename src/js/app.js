@@ -43,3 +43,12 @@ window.addEventListener('scrollStart', ()=>{
     headerEl.classList.remove('open');
   }
 });
+
+
+
+// window.onload = () => {
+//   let app = document.getElementById('app'),
+//     loading = document.getElementById('loading');
+//   app.style.display = 'block';
+//   loading.style.display = 'none';
+// };

@@ -5,6 +5,9 @@
   box-sizing: border-box;
 }
 
+//#app {
+//  display: none;
+//}
 
 /*颜色变量*/
 $primary-color: #395de1;
@@ -14,6 +17,7 @@ $title-color: #05364d;
 $text-color: #797979;
 $off-white: #f8faff;
 $white: #fff;
+
 
 .container {
   display: flex;
@@ -61,7 +65,6 @@ h3 {
   letter-spacing: 2px;
   color: #797979;
   white-space: normal;
-  text-align: center;
 }
 
 h2 {
@@ -554,6 +557,9 @@ header {
     @include container;
     //grid-template-columns: repeat(2,1fr);
   }
+  h3 {
+    text-align: center;
+  }
   .work-name{
     font-size: 28px;
     font-weight: 700;
@@ -668,5 +674,39 @@ footer {
   }
 }
 
-
+// 加载动画
+@keyframes loading {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+.loading > div > div {
+  position: absolute;
+  border-radius: 50%;
+}
+.loading > div > div:nth-child(1) {
+  top: 30px;
+  left: 30px;
+  width: 140px;
+  height: 140px;
+  background: #6252c5;
+}
+.loading > div > div:nth-child(2) {
+  top: 39.800000000000004px;
+  left: 79px;
+  width: 42px;
+  height: 42px;
+  background: #2a9fde;
+  animation: loading 1s linear infinite;
+  transform-origin: 21px 60.199999999999996px;
+}
+.loading {
+  position: absolute;;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
 

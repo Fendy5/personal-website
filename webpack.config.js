@@ -75,7 +75,7 @@ module.exports = {
     contentBase: __dirname + '/dist',
     port: 3000,
     compress: true,
-    host:'192.168.1.101',
+    host:'172.16.3.173',
   },
   devtool: 'eval-source-map',
 };
