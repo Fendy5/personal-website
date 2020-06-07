@@ -11,7 +11,6 @@
 
 /*颜色变量*/
 $primary-color: #395de1;
-;
 $primary-color2: #ed239f;
 $title-color: #05364d;
 $text-color: #797979;
@@ -92,7 +91,13 @@ section {
   animation: dropDown 0.5s ease-in-out forwards;
   .nav-link{
     font: 500 14px/70px "SimHei", sans-serif !important;
+    &:hover{
+      border-bottom: 2px solid $primary-color;
+      padding-bottom: 10px !important;
+      transition: 0.25s;
+    }
   }
+
 }
 @keyframes dropDown {
   from{
@@ -385,7 +390,6 @@ header {
           li {
             margin-right: 28px;
             list-style: none;
-
             a {
               text-decoration: none;
             }

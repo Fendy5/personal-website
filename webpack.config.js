@@ -2,8 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const webpack = require('webpack');
-const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+// const webpack = require('webpack');
+// const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -16,13 +16,13 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: [
-          // 'style-loader',
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../',
-            }
-          },
+          'style-loader',
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     publicPath: '../',
+          //   }
+          // },
           'css-loader',
           // 将scss文件转换成css文件
           'sass-loader'
@@ -66,16 +66,21 @@ module.exports = {
     //   manifest: __dirname + '/build/dll/manifest.json'
     // }),
     // new AddAssetHtmlWebpackPlugin([
-    //   {filepath: __dirname + '/build/dll/SmoothScroll.js'},
-    //   {filepath: __dirname + '/build/dll/ScrollReveal.js'},
+    //   {
+    //     filepath: './build/dll/*.js',
+    //     outputPath:'./js/',
+    //     hash: true,
+    //     publicPath:'./js/'
+    //   }
     // ])
   ],
   mode: 'production',
   devServer: {
-    contentBase: __dirname + '/dist',
+    contentBase: __dirname + '/build',
     port: 3000,
     compress: true,
-    host:'172.16.3.173',
+    // host:'172.16.3.173',
+    host: '192.168.1.101'
   },
   devtool: 'eval-source-map',
 };
