@@ -74,13 +74,14 @@ module.exports = {
     //   }
     // ])
   ],
-  mode: 'production',
+  // mode: 'production',
+  mode: "development",
   devServer: {
     contentBase: __dirname + '/build',
     port: 3000,
     compress: true,
     // host:'172.16.3.173',
-    host: '192.168.1.101'
+    // host: '192.168.1.101'
   },
   devtool: 'eval-source-map',
 };

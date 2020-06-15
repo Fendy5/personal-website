@@ -44,11 +44,14 @@ window.addEventListener('scrollStart', ()=>{
   }
 });
 
+console.log(`  _____                      _         
+ |  ___|   ___   _ __     __| |  _   _ 
+ | |_     / _ \\ | '_ \\   / _\` | | | | |
+ |  _|   |  __/ | | | | | (_| | | |_| |
+ |_|      \\___| |_| |_|  \\__,_|  \\__, |
+                                 |___/ `);
 
 
-// window.onload = () => {
-//   let app = document.getElementById('app'),
-//     loading = document.getElementById('loading');
-//   app.style.display = 'block';
-//   loading.style.display = 'none';
-// };
+console.log('周锋(Fendy)的个人主页');
+console.log('代码已发布到GitHub，https://github.com/fendy5/personal-website');
+
