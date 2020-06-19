@@ -2,8 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-// const webpack = require('webpack');
-// const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+
 
 module.exports = {
   entry: './src/js/index.js',
@@ -16,13 +15,12 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: [
-          'style-loader',
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     publicPath: '../',
-          //   }
-          // },
+          process.env.MODE_ENV === 'production' ? {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            }
+          } : 'style-loader',
           'css-loader',
           // 将scss文件转换成css文件
           'sass-loader'
@@ -54,6 +52,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: "./src/images/favicon.ico",
       template: "./src/index.html",
       minify: false
     }),
@@ -62,26 +61,12 @@ module.exports = {
       filename:'css/app.[contenthash:8].css'
     }),
     new OptimizeCssAssetsWebpackPlugin(),
-    // new webpack.DllReferencePlugin({
-    //   manifest: __dirname + '/build/dll/manifest.json'
-    // }),
-    // new AddAssetHtmlWebpackPlugin([
-    //   {
-    //     filepath: './build/dll/*.js',
-    //     outputPath:'./js/',
-    //     hash: true,
-    //     publicPath:'./js/'
-    //   }
-    // ])
   ],
-  // mode: 'production',
-  mode: "development",
+
   devServer: {
     contentBase: __dirname + '/build',
     port: 3000,
     compress: true,
-    // host:'172.16.3.173',
-    // host: '192.168.1.101'
   },
-  devtool: 'eval-source-map',
+  devtool: process.env.MODE_ENV === 'production' ? false : 'inline-source-map',
 };

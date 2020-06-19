@@ -1,3 +1,6 @@
+import SmoothScroll from 'smooth-scroll';
+import ScrollReveal from "scrollreveal";
+
 const headerEl = document.querySelector('header');
 window.addEventListener('scroll', () => {
   let height = headerEl.getBoundingClientRect().height;
