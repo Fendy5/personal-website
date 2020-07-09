@@ -388,13 +388,28 @@ header {
           margin-left: 100px;
 
           li {
+            position: relative;
             margin-right: 28px;
             list-style: none;
             a {
               text-decoration: none;
+              &::before {
+                position: absolute;
+                bottom: 30px;
+                height: 2px;
+                width: 0;
+                background: #7456e9;
+                transition: .3s;
+                left: 0;
+                content: '';
+              }
+              &:hover {
+                &::before {
+                  width: 100%;
+                }
+              }
             }
           }
-
           .nav-link {
             font: 500 14px/100px "SimHei", sans-serif;
             padding: 0;
