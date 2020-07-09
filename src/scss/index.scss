@@ -91,13 +91,15 @@ section {
   animation: dropDown 0.5s ease-in-out forwards;
   .nav-link{
     font: 500 14px/70px "SimHei", sans-serif !important;
-    &:hover{
-      border-bottom: 2px solid $primary-color;
-      padding-bottom: 10px !important;
-      transition: 0.25s;
+  }
+  .menu-bar{
+    position: relative;
+    li {
+      & > a::before {
+        top: 50px;
+      }
     }
   }
-
 }
 @keyframes dropDown {
   from{
@@ -486,8 +488,10 @@ header {
       color: $text-color;
       padding: 0 10px;
       &:hover {
-        .qr-code{
-          display: block !important;
+        .qr-code {
+          visibility: visible;
+          opacity: 1;
+          transition: .5s;
         }
       }
       .icon-wechat{
@@ -499,7 +503,8 @@ header {
       .qr-code{
         padding: 10px;
         position: absolute;
-        display: none;
+        visibility: hidden;
+        opacity: 0;
         text-align: center;
         box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
         img {
