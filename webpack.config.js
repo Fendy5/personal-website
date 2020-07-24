@@ -29,12 +29,41 @@ module.exports = {
       {
         test: /\.(jpg|jpeg|png|gif|ico)$/,
         // url-loader 依赖于 file-loader
-        loader: 'url-loader',
-        options: {
-          limit: 8 * 1024,
-          name: '[contenthash:8].[ext]',
-          outputPath:'images'
-        },
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8 * 1024,
+              name: '[contenthash:8].[ext]',
+              outputPath:'images'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',// 压缩图片
+            options: {
+              bypassOnDebug: true,
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ],
       },
       {
         //处理HTML里面的图片(引入src里面的图片，交给url-loader处理)
