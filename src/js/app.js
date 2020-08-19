@@ -1,6 +1,11 @@
 import SmoothScroll from 'smooth-scroll';
 import ScrollReveal from "scrollreveal";
 
+window.onload = function () {
+  let app = document.getElementById('app');
+  app.style.visibility = 'visible';
+  app.style.opacity = '1';
+};
 const headerEl = document.querySelector('header');
 window.addEventListener('scroll', () => {
   let height = headerEl.getBoundingClientRect().height;
@@ -56,5 +61,5 @@ console.log(`  _____                      _
 
 
 console.log('周锋(Fendy)的个人主页');
-console.log('代码已发布到GitHub，https://github.com/fendy5/personal-website');
+console.log('GitHub，https://github.com/fendy5/personal-website');
 

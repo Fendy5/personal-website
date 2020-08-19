@@ -39,29 +39,29 @@ module.exports = {
             }
           },
           {
-            loader: 'image-webpack-loader',// 压缩图片
+            loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true,
+              // 只在 production 環境啟用壓縮
+              disable: process.env.NODE_ENV !== 'production',
+              // JPEG 圖片優化器
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
-              // optipng.enabled: false will disable optipng
+              // PNG 圖片優化器
               optipng: {
-                enabled: false,
+                enabled: false, // 表示不啟用這一個圖片優化器
               },
+              // PNG 圖片優化器 (推薦)
               pngquant: {
-                quality: [0.65, 0.90],
-                speed: 4
+                quality: [0.65, 0.9],
+                speed: 4,
               },
+              // GIF 圖片優化器
               gifsicle: {
                 interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
               }
-            }
+            },
           }
         ],
       },
