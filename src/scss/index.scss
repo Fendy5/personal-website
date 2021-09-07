@@ -147,7 +147,8 @@ section {
   .nav-menu {
     //animation: slideUp 0.6s ease-out forwards;
     .menu-bar {
-      opacity: 0;
+      //opacity: 0;
+      display: none !important;
       flex-direction: column;
       margin-left:auto!important;
     }
@@ -187,7 +188,7 @@ section {
     }
 
     .menu-bar {
-      display: flex;
+      display: flex !important;
       background-color: white;
       flex-direction: column !important;
       box-shadow: 0 3px 0 0 rgba(0,0,0,0.1);
@@ -233,12 +234,15 @@ section {
   }
 
   @keyframes slideDown {
-    from {
+    0% {
       height: 0;
       opacity: 0;
     }
-    to {
+    75% {
       height: 300px;
+      opacity: 0.2;
+    }
+    100% {
       opacity: 1;
     }
   }
